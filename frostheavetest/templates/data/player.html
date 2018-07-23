@@ -1,5 +1,22 @@
-{% extend %}
-  {% block content %}
+{% block content  %}<!-- 1-->
   <h1> Player Data </h1>
-  <p>Your gamertag is <strong>{{ Gamertag }}</strong> your total halo kills are <strong>{{ TotalKills }}</strong></p>
-{% endblock %}
+    <form method="get">
+      {{ form.as_p }}
+      <button type="submit">search</button>
+    </form>
+
+    {% if search_result %} <!-- 2 -->
+      <hr>
+      {% if search_result.success %} <!-- 3 -->
+        {% for result in search_result.Results %} <!-- 4 -->
+          <h3> {{ result.form }} </h3>
+            {% for player in result. %}
+            {% endfor %}
+
+        {% endfor %} <!-- 4 -->
+      {% else %}
+        <p> <em>{{search_result.message}}</em></p>
+      {% endif %} <!-- 3 -->
+    {% endif %} <!-- 2 -->
+
+  {% endblock %}<!-- 1 -->

@@ -25,7 +25,7 @@ router.register(r'users', UserViewSet)
 urlpatterns = [
     path('frostheavetest/', include('frostheavetest.urls')),
     path('admin/', admin.site.urls),
-    path('data/', views.player, name='player'), #player router
+    path('data/', views.player, name='Results'), #player router
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
