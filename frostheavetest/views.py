@@ -6,7 +6,7 @@ import json
 from .forms import PlayerForm
 
 
-from .models import Question
+#from .models import Question
 # Create your views here.
 
 #admin test questions
@@ -34,7 +34,7 @@ from .models import Question
 
 def player(request):
     search_result = {}
-    if 'form' in request.GET:
+    if 'player' in request.GET:
         form = PlayerForm(request.GET)
         if form.is_valid():
             search_result = form.search()

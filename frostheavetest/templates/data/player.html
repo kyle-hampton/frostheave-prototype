@@ -8,9 +8,19 @@
     {% if search_result %} <!-- 2 -->
       <hr>
       {% if search_result.success %} <!-- 3 -->
-        {% for result in search_result.Results %} <!-- 4 -->
-          <h3> {{ result.form }} </h3>
-            {% for player in result. %}
+        {% for result in search_result.Result %} <!-- 4 -->
+          <h3> {{ result.player }} </h3>
+
+            {% for result in result.result %}
+              {% for stats in result.ArenaStats %}
+                {% for playliststats in stats.ArenaPlaylistStats %}
+                  {% for totalkills in playliststats.TotalKills  %}
+
+                    <h3> kills: {{ totalkills }} </h3>
+
+                  {% endfor %}
+                {% endfor %}
+              {% endfor %}
             {% endfor %}
 
         {% endfor %} <!-- 4 -->
